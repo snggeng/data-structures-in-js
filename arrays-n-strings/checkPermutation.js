@@ -20,7 +20,7 @@ checkPermutation = (strA, strB) => {
   console.log('****************************************'.yellow)
   return isPermutation
 }
-// O(N) Using Hash Set
+// O(NlogN) using sorting to reorder characters for comparison
 checkPermutation1 = (strA, strB) => {
   console.log('\x1b[36m%s\x1b[0m', 'string A: ' + strA, 'string B: ' + strB)
   let isPermutation = false
@@ -35,6 +35,40 @@ checkPermutation1 = (strA, strB) => {
   return isPermutation
 }
 
+// O(N)
+checkPermutation2 = (strA, strB) => {
+    let isPermutation = false
+    // check if strings are same length
+    if (strA.length !== strB.length) return isPermutation=false
+    // split strings into arrays of chars
+    let arrA = strA.split('')
+    let arrB = strB.split('')
+    // store in hash table
+    let myObj = arrayToObject(arrA) // O(N)
+    console.log(myObj)
+    arrB.forEach((elem, index) => { // O(N)
+      myObj[elem] > 0 ? myObj[elem]-- : isPermutation=false
+    })
+    Object.values(myObj).forEach((elem, index) => { // O(N)
+      elem !== 0 ? isPermutation=false : isPermutation=true
+    })
+    console.log('\x1b[36m%s\x1b[0m', 'string A: ' + strA, 'string B: ' + strB)
+    console.log('string A is a permutation of B? ', isPermutation)
+    console.log('\x1b[36m%s\x1b[0m', '****************************************')
+    return isPermutation
+}
+
+arrayToObject = (arr) => {
+  return arr.reduce((prev, curr) => {
+    if (prev.hasOwnProperty(curr)) {
+      prev[curr] += 1
+    } else {
+      prev[curr] = 1
+    }
+    return prev
+  }, {})
+}
+
 /*****************
     TEST CASES
  *****************/
@@ -42,10 +76,10 @@ checkPermutation1 = (strA, strB) => {
       str3 = '12', str4 = '132',
       str5 = '312', str6 = '111'
 
-checkPermutation(str1, str2)
-checkPermutation(str2, str3)
-checkPermutation(str3, str4)
-checkPermutation(str4, str5)
-checkPermutation1(str5, str6)
-checkPermutation1(str6, str1)
-checkPermutation1(str6, str3)
+checkPermutation2(str1, str2)
+checkPermutation2(str2, str3)
+checkPermutation2(str3, str4)
+checkPermutation2(str4, str5)
+checkPermutation2(str5, str6)
+checkPermutation2(str6, str1)
+checkPermutation2(str6, str3)
