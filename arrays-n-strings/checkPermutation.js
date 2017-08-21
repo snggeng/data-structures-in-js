@@ -72,7 +72,7 @@ arrayToObject = (arr) => {
 /*****************
     TEST CASES
  *****************/
- let str1 = '123', str2 = '321'
+ let str1 = '12333', str2 = '33321'
       str3 = '12', str4 = '132',
       str5 = '312', str6 = '111'
 
