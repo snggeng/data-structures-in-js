@@ -25,7 +25,7 @@ palindromePermutation = (str) => {
   let count = 0
   console.log(map)
   // check if arr length is odd or even
-  arr.length % 2 === 0 ?
+  arr.length % 2 === 0 ? // O(N)
   // even
   Object.keys(map).forEach((key, index) => {
     map[key] % 2 === 0 ? isPalindrome = true : isPalindrome = false
@@ -42,10 +42,6 @@ palindromePermutation = (str) => {
   })
   if (count === 1) {isPalindrome = true}
   return console.log('count: ', count, 'is palindrome? ', isPalindrome)
-
-
-
-  console.log(arr)
 }
 
 /* HELPER FUNCTIONS */
