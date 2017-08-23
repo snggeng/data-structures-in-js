@@ -44,6 +44,12 @@ palindromePermutation = (str) => {
   return console.log('count: ', count, 'is palindrome? ', isPalindrome)
 }
 
+palindromePermutation2 = (str) => {
+  arr = str.replace(/\s/g, '').split('') // remove whitespaces & get char array
+  // store each char in a map and count instances O(N)
+  let map = arrayToObject(arr)
+}
+
 /* HELPER FUNCTIONS */
 arrayToObject = (arr) => {
   return arr.reduce((prev, curr) => {
@@ -56,6 +62,31 @@ arrayToObject = (arr) => {
   }, {})
 }
 
+class Map {
+  constructor(val, unique) {
+    this.value = val
+    this.isOnlyOdd = unique
+  }
+
+  get val() {
+  return this.values()
+  }
+
+  // get isUnique() {
+  //   return this.isOnlyOdd()
+  // }
+
+  values() {
+    return this.value
+  }
+
+  // isOnlyOdd() {
+  //   return this.isOnlyOdd
+  // }
+}
+
+let x = new Map(2, true)
+console.log(x.isOnlyOdd)
 
 
 /* TEST CASES */
