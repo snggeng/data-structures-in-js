@@ -48,6 +48,9 @@ palindromePermutation2 = (str) => {
   arr = str.replace(/\s/g, '').split('') // remove whitespaces & get char array
   // store each char in a map and count instances O(N)
   let map = arrayToObject(arr)
+  Object.keys(map).forEach((key, index) => {
+    
+  })
 }
 
 /* HELPER FUNCTIONS */
@@ -72,17 +75,9 @@ class Map {
   return this.values()
   }
 
-  // get isUnique() {
-  //   return this.isOnlyOdd()
-  // }
-
   values() {
     return this.value
   }
-
-  // isOnlyOdd() {
-  //   return this.isOnlyOdd
-  // }
 }
 
 let x = new Map(2, true)
