@@ -111,6 +111,7 @@ let queue = new PriorityQueue()
 console.log(queue.isEmpty()) // true
 queue.enqueue('john', 2)
 queue.enqueue('jack', 1)
+console.log(queue.front())
 queue.print()
 queue.enqueue('camila', 1)
 queue.print()
