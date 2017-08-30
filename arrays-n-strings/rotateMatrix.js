@@ -32,11 +32,14 @@ let rotateMatrix2 = (matrix) => {
   // rotate left by 90 deg
   let n = matrix.length
   for (let i = 0; i < n/2; i++) {
+    /*
+
+    */
     let first = i // 0
     let last = n - 1 - i // 4 - 1 - 0 = 3
     for (let j=first; j < last; j++) {
       let offset = j - first // 0 - 0 = 0
-      let top = matrix[first][j] // 
+      let top = matrix[first][j] //
       // left -> top
       matrix[first][j] = matrix[last-offset][first]
       // bottom -> left
