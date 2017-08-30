@@ -12,22 +12,26 @@
     if 0 does not exist, return matrix
 */
 
+// O(N^3) solution :'(
 let zeroMatrix = (matrix) => {
-  let row = '', col = ''
+  let row = [], col = []
   matrix.forEach((arr, i) => { // O(N^2)
     arr.forEach((item, j) => {
-      item === 0 ? (row=i, col=j, console.log(row, col)) : console.log('none')
+      item === 0 ? (row.push(i), col.push(j), console.log(row, col)) : null
     })
   })
   console.log('row: ', row, 'col: ', col)
   matrix.forEach((arr, i) => { // O(N^2)
     arr.forEach((item, j) => {
-      i===row || j===col ? matrix[i][j]=0 : console.log('none')
+      row.includes(i) || col.includes(j) ? matrix[i][j]=0 : null //O(N)
     })
   })
-  console.log(matrix)
+  matrix.forEach(r => console.log(r))
 }
 
 let m1 = [[1,2,3,4,5], [4,5,6,8,8], [1,2,3,0,2]]
+let m2 = [[1,2,3,4,5], [4,5,6,8,8], [1,2,3,0,2], [0,2,3,4,2], [2,3,4,1,2]]
+
 
 zeroMatrix(m1)
+zeroMatrix(m2)
