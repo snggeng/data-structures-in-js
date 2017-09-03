@@ -40,12 +40,13 @@ class SinglyLinkedList {
 
   search(position) {
     let currentNode = this.head,
-        length = this._length
+        length = this._length,
         count = 1,
         message = {error: 'non-existent node in this list'}
 
     // case 1: invalid position
-    if (length === 0 || position < 1 || position> length) {
+    if (length === 0 || position < 1 || position > length) {
+      console.log('length: ', length, 'position: ', position)
       throw new Error(message.error)
     }
 
@@ -99,9 +100,15 @@ class SinglyLinkedList {
   }
 }
 
-let sll = new SinglyLinkedList()
-for (let i = 0; i < 10; i++) {
-  sll.add(Math.random())
+const main = () => {
+  let sll = new SinglyLinkedList()
+  for (let i = 0; i < 10; i++) {
+    sll.add(Math.random())
+  }
+
+  console.log(sll.length, sll.search(1))
+  sll.remove(1)
+  console.log(sll.length, sll.search(1))
 }
 
-console.log(sll)
+main()
