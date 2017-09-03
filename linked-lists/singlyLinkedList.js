@@ -1,11 +1,11 @@
-class Node {
+export class Node {
   constructor(data) {
     this.data = data
     this.next = null
   }
 }
 
-class SinglyLinkedList {
+export class SinglyLinkedList {
   constructor() {
     this._length = 0
     this.head = null
@@ -111,4 +111,4 @@ const main = () => {
   console.log(sll.length, sll.search(1))
 }
 
-main()
+//main()
