@@ -41,7 +41,7 @@ const kthToLast2 = (head, k) => {
     p1 = p1.next
     p2 = p2.next
   }
-  console.log(`${k}th the last node is ${p2.data}`)
+  console.log(`${k}th to the last node is ${p2.data}`)
   return p2
 }
 
@@ -54,7 +54,8 @@ const main = () => {
     arr.push(num)
   }
   console.log(arr)
-  kthToLast2(sll.head, 10)
+  kthToLast2(sll.head, 20)
+  kthToLast2(sll.head, 19)
 }
 
 main()
