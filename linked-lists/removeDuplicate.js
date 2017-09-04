@@ -15,9 +15,9 @@ const removeDuplicates = (list) => {
   let hash = {}
   let previous = null
   while (node) {
-    console.log('before checking for duplicate')
-    console.log('previous: ', previous, '\n node: ', node)
-    console.log('******************************')
+    // console.log('before checking for duplicate')
+    // console.log('previous: ', previous, '\n node: ', node)
+    // console.log('******************************')
     if (hash.hasOwnProperty(node.data)) {
       previous.next = node.next // list.head.next = next node
     } else {
@@ -26,26 +26,37 @@ const removeDuplicates = (list) => {
     }
     node = node.next // head = list.head.next
   }
-  console.log('after checking')
-  console.log('previous: ', previous, 'node: ', node)
+  // console.log('after checking')
+  // console.log('previous: ', previous, 'node: ', node)
   return list.head
 }
 
+/* TEST CASES */
+
 const main = () => {
   let sll = new SinglyLinkedList()
+  let sll2 = new SinglyLinkedList()
   let arr = ['a', 'b', 'c', 'd', 'e']
-
+  let arr2= ['a', 'b']
   for (let i = 0; i < 20; i++) {
-    let num = Math.round(Math.random()*4)
+    let num = Math.floor(Math.random()*5)
+    let num2 = Math.floor(Math.random()*2)
     sll.add(arr[num])
-    //track.push(arr[num])
+    sll2.add(arr2[num2])
   }
 
   let n = removeDuplicates(sll)
-  console.log(sll.length)
+  let m = removeDuplicates(sll2)
+
+  console.log('test 1')
   while (n) {
     console.log(n.data)
     n = n.next
+  }
+  console.log('test 2')
+  while (m) {
+    console.log(m.data)
+    m = m.next
   }
 }
 
