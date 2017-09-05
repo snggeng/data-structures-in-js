@@ -23,8 +23,9 @@ const kthToLast = (head, k) => {
   if (head === null) return 0
   let index = kthToLast(head.next, k) +1
   if (index == k) {
-    console.log(`${k}th the last node is ${head.data}`)
+    console.log(`${k}th to the last node is ${head.data}`)
   }
+  console.log(head.data)
   return index
 }
 
@@ -54,8 +55,8 @@ const main = () => {
     arr.push(num)
   }
   console.log(arr)
-  kthToLast2(sll.head, 20)
-  kthToLast2(sll.head, 19)
+  kthToLast(sll.head, 20)
+  kthToLast(sll.head, 19)
 }
 
 main()
