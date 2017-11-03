@@ -15,36 +15,27 @@ const dutchNationalFlag = (arr, n) => {
 
   // sort to smaller to left
   // loop array until 2 pointers converge
-  while (start != end && start < arr.length) {
-    //console.log(start, end)
-    if (arr[start] >= n && arr[end] < n) {
-      console.log(`swap: ${arr[start]} ${arr[end]}`)
-      swap(start, end)
-    } else if (arr[start] < n) {
-      console.log('start moving')
-      start++
-    } else if (arr[end] >= n) {
-      console.log('end moving')
-      end--
+  let shiftSmallerLeft = (start, end, n) => {
+    while (start != end && start < arr.length) {
+      console.log(start, end)
+      if (arr[start] >= n && arr[end] < n) {
+        console.log(`swap: ${arr[start]} ${arr[end]}`)
+        swap(start, end)
+      } else if (arr[start] < n) {
+        console.log('start moving')
+        start++
+      } else if (arr[end] >= n) {
+        console.log('end moving')
+        end--
+      }
     }
   }
-  // sort pivot into middle
+  shiftSmallerLeft(start, end, n)
+  // sort pivot i.e. n into middle
   start = 0
   end = arr.length - 1
-  n += 1
-  while (start != end && start < arr.length) {
-    //console.log(start, end)
-    if (arr[start] >= n && arr[end] < n) {
-      console.log(`swap: ${arr[start]} ${arr[end]}`)
-      swap(start, end)
-    } else if (arr[start] < n) {
-      console.log('start moving')
-      start++
-    } else if (arr[end] >= n) {
-      console.log('end moving')
-      end--
-    }
-  }
+  shiftSmallerLeft(start, end, n+1)
+
   return arr
 }
 
