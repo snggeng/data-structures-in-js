@@ -2,6 +2,7 @@
 // numbers based on the number n:
 // all elements < n should go to its left
 // all elements >= n should go to its right
+/*
 const dutchNationalFlag = (arr, n) => {
   let start = 0
   let end = arr.length - 1
@@ -38,14 +39,48 @@ const dutchNationalFlag = (arr, n) => {
 
   return arr
 }
+*/
+
+const dutchNationalFlag = (pivotIndex, arr) => {
+  let pivot = arr[pivotIndex];
+  // use three pointers to partition placement of numbers
+  let smaller = 0;
+  let equal = 0;
+  let larger = arr.length;
+
+  // helper to swap
+  const swap = (arr, a, b) => {
+    let temp = arr[a]
+    arr[a] = arr[b]
+    arr[b] = temp
+  }
+
+  // iterate through array and swap numbers into partition
+  while (equal < larger) {
+    if (arr[equal] < pivot) {
+      // console.log(`equal: ${arr[equal]} < pivot ${pivot}`)
+      swap(arr, smaller++, equal++);
+    } else if (arr[equal] === pivot) {
+      // console.log(`equal: ${arr[equal]} === pivot ${pivot}`)
+      ++equal;
+    } else {
+      // console.log(`equal: ${arr[equal]} > pivot ${pivot}`)
+      // equal > pivotIndex
+      swap(arr, equal, --larger);
+    }
+    // console.log(arr)
+  }
+  return arr;
+}
 
 /*
  * TEST CASES
  */
 
 let nums1 = [4,2,3,5,2,10,204,2,3,10,29,20,10]
-let n = 10
+let n = 5
 console.log(`input: ${nums1}`)
 console.log('expected output: [4,2,3,5,2,2,3,10,10,10,204,29,20] \n')
 
-console.log(dutchNationalFlag(nums1, n))
+console.log(dutchNationalFlag(n, nums1))
+console.log(nums1.length, count);
