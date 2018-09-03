@@ -1,0 +1,24 @@
+{
+  "name": "data-structures-in",
+  "version": "1.0.0",
+  "description": "A public repository containing data structures and solutions to coding problems.",
+  "main": "index.js",
+  "dependencies": {
+    "babel-preset-es2015": "^6.24.1",
+    "colors": "^1.3.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/snggeng/data-structures-in-js.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/snggeng/data-structures-in-js/issues"
+  },
+  "homepage": "https://github.com/snggeng/data-structures-in-js#readme"
+}
