@@ -37,9 +37,9 @@ const LIS = (nums) => {
 }
 
 // DP + Binary Search solution: O(nLogn)
-cont LISbinary = (arr) => {
+// cont LISbinary = (arr) => {
   
-}
+// }
 
 let list = [1, 2, 4, 5, 3, 6, -1, 7, -2, 0, 10]
 let list2 = [-100, -99, -8, -7, -4, -1, 5, 4, 3, 2, 1, 0, 10, 40]

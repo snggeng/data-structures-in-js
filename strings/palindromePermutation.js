@@ -20,7 +20,7 @@
 palindromePermutation = (str) => {
   arr = str.replace(/\s/g, '').split('') // remove whitespaces & get char array
   // store each char in a map and count instances O(N)
-x  let map = arrayToObject(arr)
+  let map = arrayToObject(arr)
   let isPalindrome = false
   let count = 0
   console.log(map)
