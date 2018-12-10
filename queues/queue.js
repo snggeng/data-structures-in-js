@@ -13,27 +13,27 @@
 */
 
 class Queue {
-  constructor(){
+  constructor () {
     this.items = []
   }
-  enqueue(element){
+  enqueue (element) {
     this.items.push(element)
   }
-  dequeue(){
+  dequeue () {
     return this.items.shift()
   }
-  front(){
+  front () {
     return this.items[0]
   }
-  isEmpty(){
+  isEmpty () {
     return this.items.length === 0
   }
-  size(){
+  size () {
     return this.items.length
   }
 
   // debugging
-  print(){
+  print () {
     console.log(this.items.toString())
   }
 }
@@ -42,14 +42,14 @@ class Queue {
 let QueuePrivate = (() => {
   const items = new WeakMap()
   class Queue {
-    constructor(){
+    constructor () {
       items.set(this, [])
     }
-    enqueue(element){
+    enqueue (element) {
       let q = items.get(this)
       q.push(element)
     }
-    dequeue(){
+    dequeue () {
       let q = items.get(this)
       let r = q.shift()
       return r
@@ -58,8 +58,8 @@ let QueuePrivate = (() => {
   return Queue
 })()
 
-class queueElement {
-  constructor(element, priority){
+class QueueElement {
+  constructor (element, priority) {
     this.element = element
     this.priority = priority
   }
@@ -67,14 +67,14 @@ class queueElement {
 
 // Priority Queue
 class PriorityQueue {
-  constructor(){
+  constructor () {
     this.items = []
   }
 
-  enqueue(element, priority) {
-    let qElement = new queueElement(element, priority)
+  enqueue (element, priority) {
+    let qElement = new QueueElement(element, priority)
     let added = false
-    for (let i=0; i<this.items.length;i++){
+    for (let i = 0; i < this.items.length; i++) {
       if (qElement.priority < this.items[i].priority) {
         this.items.splice(i, 0, qElement)
         added = true
@@ -86,21 +86,21 @@ class PriorityQueue {
     }
   }
 
-  dequeue(){
+  dequeue () {
     return this.items.shift()
   }
-  front(){
+  front () {
     return this.items[0]
   }
-  isEmpty(){
+  isEmpty () {
     return this.items.length === 0
   }
-  size(){
+  size () {
     return this.items.length
   }
 
-  print(){
-    for (let i=0; i < this.items.length; i++) {
+  print () {
+    for (let i = 0; i < this.items.length; i++) {
       console.log(`${this.items[i].element} - ${this.items[i].priority}`)
     }
   }
